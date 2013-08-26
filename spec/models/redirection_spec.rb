@@ -16,15 +16,31 @@ module Refinery
           context "when creating redirection to #{original_path}" do
 
             let(:redirection) { create :redirection, from_url: original_path }
-            subject { redirection }
 
-            before { Refinery::Redirections.ignored_path_params = undesired_params }
+            before do
+              Refinery::Redirections.ignored_path_params = undesired_params
+              redirection
+            end
 
             it "should sanitize it into #{sanitized_path}" do
               Refinery::Redirections::Redirection.sanitize_path(original_path).should eql sanitized_path
             end
 
-            its(:from_url) { should eql sanitized_path }
+            it "should save it sanitized" do
+              redirection.from_url.should eql sanitized_path
+            end
+
+            it "should be found by the non sanitized path" do
+              Refinery::Redirections::Redirection.from_url(sanitized_path).should match_array [redirection]
+            end
+
+            it "should be found by the sanitized path" do
+              Refinery::Redirections::Redirection.from_url(sanitized_path).should match_array [redirection]
+            end
+
+            it "should not be found by any other random path" do
+              Refinery::Redirections::Redirection.from_url('yeah-it-should-be-funny-huh?').should be_blank
+            end
 
           end
 
