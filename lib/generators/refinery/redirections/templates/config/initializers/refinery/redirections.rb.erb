@@ -1,0 +1,5 @@
+Refinery::Redirections.configure do |config|
+
+  # Here we include params in the path that must be ignored when looking for a redirection
+  config.ignored_path_params = <%= Refinery::Redirections.ignored_path_params.inspect %>
+end
