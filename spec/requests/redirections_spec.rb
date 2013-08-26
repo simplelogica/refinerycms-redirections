@@ -21,6 +21,13 @@ module Refinery
 
       end
 
+      context "when visiting a url without a redirection created" do
+
+        before { visit_without_redirects '/' }
+        it('should not return a redirection http status code') { page.status_code.should satisfy { |code| code < 300 || code >= 400} }
+
+      end
+
     end
   end
 end

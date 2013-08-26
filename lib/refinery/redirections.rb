@@ -8,6 +8,7 @@ module Refinery
 
     require 'refinery/redirections/engine'
     require 'refinery/redirections/configuration'
+    require 'refinery/redirections/routes_constraint'
 
     attr_writer :root
 
