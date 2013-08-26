@@ -1,9 +1,13 @@
 require 'refinerycms-core'
 
 module Refinery
+
+  autoload :RedirectionsGenerator, 'generators/refinery/redirections/redirections_generator'
+
   module Redirections
 
     require 'refinery/redirections/engine'
+    require 'refinery/redirections/configuration'
 
     attr_writer :root
 
