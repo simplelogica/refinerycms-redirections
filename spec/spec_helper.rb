@@ -55,6 +55,7 @@ Spork.prefork do
 
     # Capybara DSL only in request specs
     config.include Capybara::DSL, :type => :request
+    config.include VisitWithoutRedirectsHelper, :type => :request
 
     # Cleaning database on before and afters
     config.before(:suite) do

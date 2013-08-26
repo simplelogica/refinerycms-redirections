@@ -11,6 +11,7 @@ guard 'spork', :cucumber_env => { 'RAILS_ENV' => 'test' }, :rspec_env => { 'RAIL
   watch('spec/spec_helper.rb') { :rspec }
   watch(%r{spec/support/(.+).rb}) { :rspec }
   watch(%r{^app/models/.+\.rb$}) { :rspec }
+  watch(%r{^app/controllers/.+\.rb$}) { :rspec }
 end
 
 guard 'rspec', :cli => "--color --format nested --fail-fast --drb", :run_all => { :cli => "-p --color" }, :all_after_pass => false do
@@ -24,6 +25,8 @@ guard 'rspec', :cli => "--color --format nested --fail-fast --drb", :run_all => 
 
 
   watch(%r{^app/models/refinery/redirections/(.+)\.rb$})  { |m| ["spec/models/#{m[1]}_spec.rb",] }
+
+  watch(%r{^app/controllers/refinery/redirections/(.+)_controller\.rb$})  { |m| ["spec/requests/#{m[1]}_spec.rb",] }
 
   watch(%r{^spec/support/(.+)\.rb$})                  { "spec" }
 
