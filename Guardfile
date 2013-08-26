@@ -22,6 +22,9 @@ guard 'rspec', :cli => "--color --format nested --fail-fast --drb", :run_all => 
   watch(%r{^app/(.+)\.rb$})                           { |m| "spec/#{m[1]}_spec.rb" }
   watch(%r{^app/(.*)(\.erb|\.haml)$})                 { |m| "spec/#{m[1]}#{m[2]}_spec.rb" }
 
+
+  watch(%r{^app/models/refinery/redirections/(.+)\.rb$})  { |m| ["spec/models/#{m[1]}_spec.rb",] }
+
   watch(%r{^spec/support/(.+)\.rb$})                  { "spec" }
 
   # Capybara features specs
