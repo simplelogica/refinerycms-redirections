@@ -1,0 +1,15 @@
+<div class='pagination_container'>
+  <% if records.any? %>
+
+    <%= will_paginate records if controller.class.pageable? %>
+    <ul id='sortable_list'>
+      <%= render partial: "/refinery/redirections/admin/redirections/redirection", collection: records, as: 'redirection' %>
+    </ul>
+  <% else %>
+    <p>
+      <strong>
+        <%= t('.no_items_yet') %>
+      </strong>
+    </p>
+  <% end %>
+</div>
