@@ -1,0 +1,14 @@
+es:
+  refinery:
+    redirections:
+      admin:
+        redirections:
+          actions:
+            create_new: Crear nueva redirección
+            list: Ver todas las redirecciones
+          records:
+            title: Redirecciones
+            no_items_yet: "No hay redirecciones todavía. Pulsa en 'Crear nuevo redirección' para crear tu primer redirección."
+          redirection:
+            edit: Editar esta redirección
+            delete: Borrar esta redirección para siempre

@@ -1,0 +1,5 @@
+es:
+  refinery:
+    plugins:
+      refinerycms_redirections:
+        title: Redirecciones

@@ -1,0 +1,9 @@
+es:
+  activerecord:
+    attributes:
+      refinery/redirections/redirection:
+        from_url: Url original
+        to_url: Url a la que redirigir
+        status_code: Tipo de redirección
+    models:
+      refinery/redirections/redirection: 'Redirección'

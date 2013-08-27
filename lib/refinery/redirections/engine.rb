@@ -18,6 +18,10 @@ module Refinery
       config.after_initialize do
         Refinery.register_engine(Refinery::Redirections)
       end
+
+      paths["config/locales"] << "config/locales/**"
+
+
     end
   end
 end
