@@ -10,5 +10,6 @@
 
 <div class='field'>
   <%= f.label :status_code -%>
-  <%= f.text_field :status_code, :class => 'larger widest'  -%>
+
+  <%= f.select :status_code, Refinery::Redirections::Redirection.status_code.options, class: 'widest'  -%>
 </div>
