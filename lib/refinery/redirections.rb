@@ -1,4 +1,5 @@
 require 'refinerycms-core'
+require 'rack/rewrite'
 
 module Refinery
 
