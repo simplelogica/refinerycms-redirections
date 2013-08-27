@@ -7,3 +7,10 @@ es:
         status_code: Tipo de redirección
     models:
       refinery/redirections/redirection: 'Redirección'
+  enumerize:
+    refinery/redirections/redirection:
+      status_code:
+        "301": "Redirección permanente (301)"
+        "302": "Redirección temporal (302)"
+        "303": "Vea Otra (303)"
+        "307": "Redirección temporal (307)"
