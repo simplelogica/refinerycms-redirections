@@ -2,6 +2,7 @@ PATH
   remote: .
   specs:
     refinerycms-redirections (2.0.10.0)
+      enumerize (~> 0.7.0)
       rack-rewrite (~> 1.2.1)
       refinerycms-core (~> 2.0.10)
       refinerycms-i18n (~> 2.0.0)
@@ -74,6 +75,8 @@ GEM
     dragonfly (0.9.15)
       multi_json (~> 1.0)
       rack
+    enumerize (0.7.0)
+      activesupport (>= 3.2)
     erubis (2.7.0)
     execjs (2.0.0)
     factory_girl (2.6.4)
@@ -295,6 +298,7 @@ DEPENDENCIES
   activerecord-jdbcsqlite3-adapter
   coffee-rails
   database_cleaner
+  enumerize (~> 0.7.0)
   faker
   guard-rspec
   guard-spork

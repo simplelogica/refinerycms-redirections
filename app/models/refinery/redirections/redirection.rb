@@ -1,5 +1,9 @@
 class Refinery::Redirections::Redirection < ActiveRecord::Base
+  extend Enumerize
+
   attr_accessible :from_url, :status_code, :to_url
+
+  enumerize :status_code, in: ["301", "302", "303", "307"]
 
   validates :from_url, :status_code, :to_url, presence: true
 
