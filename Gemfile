@@ -4,6 +4,7 @@ gemspec
 
 gem 'refinerycms', '~> 2.0.10'
 gem 'refinerycms-i18n', '~> 2.0.0'
+gem 'rack-rewrite', '~> 1.2.1'
 
 # Database Configuration
 platforms :jruby do

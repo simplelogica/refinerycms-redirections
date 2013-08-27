@@ -19,6 +19,15 @@ module Refinery
         Refinery.register_engine(Refinery::Redirections)
       end
 
+
+      initializer 'add rack rewrite rules' do |app|
+        app.config.middleware.insert_before(Rack::Lock, Rack::Rewrite) do
+          Refinery::Redirections::Redirection.all.each do |redirection|
+            send("r#{redirection.status_code}", redirection.from_url, redirection.to_url)
+          end
+        end
+      end
+
       paths["config/locales"] << "config/locales/**"
 
 
