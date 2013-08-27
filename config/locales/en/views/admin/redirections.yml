@@ -1,0 +1,14 @@
+en:
+  refinery:
+    redirections:
+      admin:
+        redirections:
+          actions:
+            create_new: Create new redirection
+            list: View all redirections
+          records:
+            title: Redirections
+            no_items_yet: "There are no redirections yet. click on 'Create new redirection' to create your first redirection."
+          redirection:
+            edit: Edit this redirection
+            delete: Delete this redirection
