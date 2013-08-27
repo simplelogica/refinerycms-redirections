@@ -32,4 +32,8 @@ class Refinery::Redirections::Redirection < ActiveRecord::Base
 
   end
 
+  def title
+    "#{from_url} -> #{to_url} (#{status_code})"
+  end
+
 end
