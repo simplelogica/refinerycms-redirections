@@ -2,4 +2,16 @@ Refinery::Redirections.configure do |config|
 
   # Here we include params in the path that must be ignored when looking for a redirection
   config.ignored_path_params = <%= Refinery::Redirections.ignored_path_params.inspect %>
+
+  # Here we enable rack rewrite redirection. This will create rack rewrite rules on startup and enable its redirections.
+  # WARNING: Any new redirection in the back requires the app to restart
+  # WARNING: Changing this setting requires the app to restart
+  config.enable_rack_redirection = <%= Refinery::Redirections.enable_rack_redirection.inspect %>
+
+  # Here we enable the redirections controller through a route in the config/routes.rb file. This will create a redirection route that will match every request
+  # WARNING: Any new redirection will be applied inmediately
+  # WARNING: This will execute one database query per request to check if a redirection is present, increasing DB load
+  # WARNING: Changing this setting requires the app to restart
+  config.enable_route_redirection = <%= Refinery::Redirections.enable_route_redirection.inspect %>
+
 end
