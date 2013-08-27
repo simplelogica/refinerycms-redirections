@@ -94,5 +94,6 @@ end
 
 Spork.each_run do
   # This code will be run each time you run your specs.
+  I18n.reload!
   FactoryGirl.reload
 end
