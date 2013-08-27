@@ -1,7 +1,8 @@
 Refinery::Core::Engine.routes.prepend do
 
-  match "/*path" => 'redirections/redirections#redirect', constraints: Refinery::Redirections::RoutesConstraint
-
+  if Refinery::Redirections.enable_route_redirection
+    match "/*path" => 'redirections/redirections#redirect', constraints: Refinery::Redirections::RoutesConstraint
+  end
 
   namespace :redirections, path: '' do
     namespace :admin, :path => 'refinery' do

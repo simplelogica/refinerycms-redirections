@@ -21,11 +21,17 @@ module Refinery
 
 
       initializer 'add rack rewrite rules' do |app|
-        app.config.middleware.insert_before(Rack::Lock, Rack::Rewrite) do
-          Refinery::Redirections::Redirection.all.each do |redirection|
-            send("r#{redirection.status_code}", redirection.from_url, redirection.to_url)
+
+        if Refinery::Redirections.enable_rack_redirection
+          app.config.middleware.insert_before(Rack::Lock, Rack::Rewrite) do
+            Refinery::Redirections::Redirection.all.each do |redirection|
+              if self.respond_to? "r#{redirection.status_code}"
+                send("r#{redirection.status_code}", redirection.from_url, redirection.to_url)
+              end
+            end
           end
         end
+
       end
 
       paths["config/locales"] << "config/locales/**"
