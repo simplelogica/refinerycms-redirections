@@ -10,7 +10,7 @@ en:
   enumerize:
     refinery/redirections/redirection:
       status_code:
-        "301": "Permanente redirection (301)"
+        "301": "Permanent Redirect (301)"
         "302": "Found (302)"
         "303": "See Other (303)"
         "307": "Temporary redirect (307)"
